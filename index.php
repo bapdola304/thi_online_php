@@ -22,8 +22,8 @@
     <script src="./bs/js/bootstrap.min.js"></script>
 
 
-      <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
-    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+      <link rel='stylesheet' href='./css/sweet-alert.css'>
+    <script src='./js/sweet-alert.min.js'></script>
     <link rel="stylesheet" href="include/style.css">
 
 </head>

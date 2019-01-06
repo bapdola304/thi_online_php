@@ -42,6 +42,7 @@
 							if($hashedPwdCheck == false)
 							{
 
+								$_SESSION["username"] = $row['username'];
 								$_SESSION["hoten"] = $row['hoten'];
 								$_SESSION["quyen"] = $row['quyen'];
 								header('Location:index.php?a=chonmon');
