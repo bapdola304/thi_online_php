@@ -19,6 +19,11 @@
     $xemda = $_SESSION['xemda'];
 
    ?>
+
+   <?php 
+        $sqlmon = "SELECT * FROM monthi";
+         $query_mon = mysqli_query($connect,$sqlmon);
+    ?>
     <?php include('menu.php') ?>
   <div class="container" style="width: 1390px;">
     <div class="content">
@@ -145,8 +150,14 @@
           <div class="thi">
             <?php $monthi = $_GET['monthi'] ?>
             <div class="content-thi">
-              <p>Kiểm Tra Môn:  <?= $monthi  ?></p>
-              <p>Thời Gian Làm Bài:  30p</p>
+              <p>Kiểm Tra Môn:  <?php
+                   while ($mon = mysqli_fetch_array($query_mon)) {
+                      if($mon['mamon'] == $monthi){
+                        echo $mon['tenmon'];
+                      }
+                   }
+                ?></p>
+              <p>Thời Gian Làm Bài:  <?= $_GET['tg'] ?>p</p>
               <p>Tổng Số Câu Hỏi: 25</p>
               <div id="countdown">
                 <p>Thời Gian</p>

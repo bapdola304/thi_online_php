@@ -82,7 +82,7 @@ if(isset($_POST['sua'])){
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Danh Sách Sinh Viên
+                    Danh Sách User
                 </div>
                 <div class="panel-body">
                     <table class="table table-bordered">

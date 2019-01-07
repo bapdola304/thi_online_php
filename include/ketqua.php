@@ -2,11 +2,19 @@
   if(isset($_COOKIE['mycookie'])){
     setcookie("mycookie", "", time()-3600);
   }
+  if(isset($_SESSION["time"])){
+    @$time = $_SESSION['time'];
+      unset($_SESSION["time"]);
+      
+}
+
   $monthi = $_GET['monthi'];
 
   $sql = "SELECT * FROM $monthi";
   $query = mysqli_query($connect,$sql);
 
+  $sqlmon = "SELECT * FROM monthi";
+  $query_mon = mysqli_query($connect,$sqlmon);
 
 
      $arr = $_POST;
@@ -88,12 +96,18 @@
         </div>
         <div class="col-md-4">
           <div class="bang2">
-            <p>Thi Thử Môn: <?php echo $_GET['monthi'] ?></p>
+            <p>Thi Thử Môn: <?php
+                   while ($mon = mysqli_fetch_array($query_mon)) {
+                      if($mon['mamon'] == $monthi){
+                        echo $mon['tenmon'];
+                      }
+                   }
+                ?></p>
             <p>Thời Gian Làm Bài: <?= $_GET['tg']  ?>p</p>
             <p>Tổng Số Câu Hỏi: 25 Câu</p>
           </div>
           <div class="nutxem">
-            <a href="index.php?a=xemdapan&monthi=<?= $monthi?>"><button class="btn btn-primary">Xem Đáp Án</button></a>
+            <a href="index.php?a=xemdapan&monthi=<?= $monthi?>&tg=<?= $time ?>"><button class="btn btn-primary">Xem Đáp Án</button></a>
           </div>
         </div>
       </div>

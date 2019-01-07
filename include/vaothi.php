@@ -1,7 +1,12 @@
 
 <?php
-@$time =$_POST['time'];
+if(!isset($_SESSION['time'])){
+    $_SESSION['time'] = $_POST['time'];
+      
+}
 
+ 
+ $time = $_SESSION['time'];
 if($time == 30){
   $s = 1800;
 }else if($time == 15){
@@ -19,6 +24,10 @@ setcookie('mycookie', $expiry, $expiry);
 
   $sql = "SELECT * FROM $monthi ORDER BY RAND() LIMIT 25";
   $sqlkq = mysqli_query($connect,$sql);
+
+  $sqlmon = "SELECT * FROM monthi";
+  $query_mon = mysqli_query($connect,$sqlmon);
+
   $i =0;
   $socau = mysqli_num_rows($sqlkq);
   $row1=array();
@@ -60,7 +69,7 @@ setcookie('mycookie', $expiry, $expiry);
           <div class="cau">
             <p style="width: 150px">Câu <?php echo $i ?>: </p>
           </div>
-          <form action="index.php?a=ketqua&monthi=<?=$monthi?>&tg=<?= $time  ?>" method="POST">
+          <form action="index.php?a=ketqua&monthi=<?= $monthi?>&tg=<?= $_SESSION['time']?>" method="POST">
             <div class="dethi col-md-12">
               <div class="decauhoi col-md-5"><?php echo $row['cauhoi']; ?></div>
               <div class="dehinh col-md-7">
@@ -111,7 +120,7 @@ setcookie('mycookie', $expiry, $expiry);
 
                  <div class="item-traloi col-md-3" style="padding:0">
                     <label class="radio-inline"  data-id="valcau<?php echo $i ?>">
-                      <input type="radio" name="<?php echo $row['id'] ?>" id="cau1" data-id="valcau<?php echo $i ?>" value="C" class="option-input radio">D
+                      <input type="radio" name="<?php echo $row['id'] ?>" id="cau1" data-id="valcau<?php echo $i ?>" value="D" class="option-input radio">D
                     </label>
                     <div class="text-traloi col-md-6" style="padding:0">
                      <?php echo $row['D']; ?>
@@ -136,7 +145,14 @@ setcookie('mycookie', $expiry, $expiry);
           <div class="thi">
             
             <div class="content-thi">
-              <p>Kiểm Tra Môn:  <?php echo $monthi ?></p>
+              <p>Kiểm Tra Môn:  
+                <?php
+                   while ($mon = mysqli_fetch_array($query_mon)) {
+                      if($mon['mamon'] == $monthi){
+                        echo $mon['tenmon'];
+                      }
+                   }
+                ?></p>
               <p>Thời Gian Làm Bài: <?php echo $time ?></p>
               <p>Tổng Số Câu Hỏi: <?php echo $socau ?></p>
               <div id="countdown">
