@@ -15,12 +15,12 @@
   ?>">
   <?php $mangcauhoi = $_SESSION["mangcauhoi"];
   $i=0;
-    var_dump($_SESSION['xemda']);
+    // var_dump($_SESSION['xemda']);
     $xemda = $_SESSION['xemda'];
 
    ?>
-  <div class="container" style="width: 1390px;">
     <?php include('menu.php') ?>
+  <div class="container" style="width: 1390px;">
     <div class="content">
       <div class="col-md-8 left">
         <h2>Kỳ thi THPTQG 2018 - Đề thi minh hoạ</h2>

@@ -39,7 +39,7 @@
 <html lang="en">
     <title>Kết Quả</title>
   <body>
-    <div class="banner">ôn: Toan
+    <div class="banner">
       <img src="" alt="">
     </div>
     <div class="container" >
@@ -88,7 +88,7 @@
         </div>
         <div class="col-md-4">
           <div class="bang2">
-            <p>Thi Thử Môn: Toán</p>
+            <p>Thi Thử Môn: <?php echo $_GET['monthi'] ?></p>
             <p>Thời Gian Làm Bài: <?= $_GET['tg']  ?>p</p>
             <p>Tổng Số Câu Hỏi: 25 Câu</p>
           </div>

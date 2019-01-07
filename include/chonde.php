@@ -26,11 +26,12 @@
               </select>
               
             </div>
-          </div>
-          <div class="col-md-3" style="margin-top: 200px;">
+             <div style="margin-top:50px;">
             <button class="btn btn-primary btn-lg" name="kiemtra">Kiểm Tra Ngay</button>
             
           </div>
+          </div>
+         
         </form>
       </div>
      </div> 

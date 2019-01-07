@@ -1,6 +1,6 @@
 
 <?php
-$time =$_POST['time'];
+@$time =$_POST['time'];
 
 if($time == 30){
   $s = 1800;
@@ -43,8 +43,9 @@ setcookie('mycookie', $expiry, $expiry);
   echo round(($_COOKIE['mycookie'] - time())/60 - 1,1);
   }
   ?>">
+  <?php include('menu.php') ?>
   <div class="container" style="width: 1390px;">
-    <?php include('menu.php') ?>
+    
     <div class="content">
       <div class="col-md-8 left">
         <h2>Kỳ thi THPTQG 2018 - Đề thi minh hoạ</h2>
@@ -130,13 +131,13 @@ setcookie('mycookie', $expiry, $expiry);
           <?php } ?>
         </div>
         <div class="col-md-3 right" style="position: fixed;right: 84px;width: 400px;background: #f5f5f5;">
-          <p>Chào Bạn:  <?php echo $_SESSION['username']?></p>
+          <p>Chào Bạn:  <?php echo $_SESSION['hoten']?></p>
           
           <div class="thi">
             
             <div class="content-thi">
               <p>Kiểm Tra Môn:  <?php echo $monthi ?></p>
-              <p>Thời Gian Làm Bài: 30p</p>
+              <p>Thời Gian Làm Bài: <?php echo $time ?></p>
               <p>Tổng Số Câu Hỏi: <?php echo $socau ?></p>
               <div id="countdown">
                 <p>Thời Gian</p>

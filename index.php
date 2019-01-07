@@ -14,16 +14,16 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ</title>
+    <title>Thi Online</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="./bs/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./bs/js/jquery.min.js"></script>
     <script src="./bs/js/bootstrap.min.js"></script>
 
 
-      <link rel='stylesheet' href='./css/sweet-alert.css'>
-    <script src='./js/sweet-alert.min.js'></script>
+      <link rel='stylesheet' href='./bs/css/sweet-alert.css'>
+    <script src='./bs/js/sweet-alert.min.js'></script>
     <link rel="stylesheet" href="include/style.css">
 
 </head>

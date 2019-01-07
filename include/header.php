@@ -1,3 +1,8 @@
+<?php 
+if(isset($_COOKIE['mycookie'])){
+    setcookie("mycookie", "", time()-3600);
+  }
+ ?>
 <header>
     <div class="wallpaper" style="height: 750px; background-image: url(./img/ne.png);">
         <nav class="navbar navbar-default">
@@ -12,8 +17,8 @@
                         <?php
                         if(isset($_SESSION['username'])){
                         ?>
-                        <li role="presentation"><a href="#"><?php echo $_SESSION['username']?></a></li>
-                        <li role="presentation"><a href="include/logout.php">Logout</a></li>
+                        <li role="presentation"><a href="#">Chào! <?php echo $_SESSION['username']?></a></li>
+                        <li role="presentation"><a href="include/logout.php">Đăng Xuất</a></li>
                         <?php
                         }
                         else

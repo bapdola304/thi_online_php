@@ -1,5 +1,9 @@
 
-
+<?php 
+if(isset($_COOKIE['mycookie'])){
+    setcookie("mycookie", "", time()-3600);
+  }
+ ?>
 <?php 
 if(!isset($_SESSION["username"])){
   header("Location: index.php?a=login");

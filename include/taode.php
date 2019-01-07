@@ -1,4 +1,8 @@
-
+<?php 
+if(isset($_COOKIE['mycookie'])){
+    setcookie("mycookie", "", time()-3600);
+  }
+ ?>
 <?php 
 ob_start();
 require('connect/connect.php');
@@ -39,7 +43,7 @@ if (isset($_POST['btnGui'])) {
   }
     
   }
-  echo "Thanh cong";
+      echo "<script>alert('Thêm Thành Công')</script>";
   }
 
 ?>
@@ -58,13 +62,13 @@ if (isset($_POST['btnGui'])) {
     </div>
     <div class="container" >
       <?php include('menu.php') ?>
-      <div class="content">
+      <div class="content" style="background: #e3d8d83d;height: 610px;">
  
           <div class="col-md-2"></div>
           <div class="col-md-6" style="margin-top: 100px;">
             <div class="chontg">
           <form class="form-inline" method="POST" enctype="multipart/form-data">
-              <button class="btn btn-primary">Môn</button>
+              <button class="btn btn-primary">Chọn Môn</button>
 
               <select id="inputState" class="form-control" style="width: 50%;display: inline;" name="mon">
 

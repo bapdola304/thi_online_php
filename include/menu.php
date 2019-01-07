@@ -1,6 +1,6 @@
  <div class="menu">
         <nav class="navbar navbar-default">
-          <div class="container">
+          <div class="container1">
             <div class="navbar-header">
               <a class="navbar-brand" href="#">
                 <img src="http://onthidaihoc.online/images/logo/onthidaihoc-64x64.png" width="40">
@@ -9,9 +9,9 @@
             </div>
             <ul class="nav navbar-nav">
               <li><a href="./index.php">Trang Chủ</a></li>
-              <li><a href="#">Môn Thi</a></li>
-              <li><a href="#">Môn Thi 2</a></li>
-              <li><a href="#">Môn Thi 3</a></li>
+              <li><a href="index.php?a=chonmon">Chọn Môn</a></li>
+              <!-- <li><a href="#">Môn Thi 2</a></li>
+              <li><a href="#">Môn Thi 3</a></li> -->
               <?php 
               if (isset($_SESSION['quyen']) && $_SESSION['quyen'] == 'giaovien') {
                 ?>
@@ -24,6 +24,7 @@
               ?>
               <li><a href="#">Tin Tức</a></li>
               <li><a href="#">Liên Hệ</a></li>
+              <li><a href="include/logout.php">Đăng Xuất</a></li>
             </ul>
           </div>
         </nav>
