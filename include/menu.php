@@ -24,6 +24,7 @@
               ?>
               <li><a href="#">Tin Tức</a></li>
               <li><a href="#">Liên Hệ</a></li>
+              <li><a href="index.php?a=khaosat">Khảo Sát</a></li>
               <li><a href="include/logout.php">Đăng Xuất</a></li>
             </ul>
           </div>

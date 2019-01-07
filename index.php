@@ -55,6 +55,9 @@
       else if(isset($_GET['a']) && $_GET['a']=='xemdapan'){
          include "include/xemdapan.php";
     }
+      else if(isset($_GET['a']) && $_GET['a']=='khaosat'){
+         include "include/khaosat.php";
+    }
     else{
          include "include/header.php";
 
