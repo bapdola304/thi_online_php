@@ -1,5 +1,5 @@
 <?php
-$sqlthem = "SELECT * FROM `username`";
+$sqlthem = "SELECT * FROM username";
 $querythem = mysqli_query($connect, $sqlthem);
 $i=0;
 ?>
@@ -12,26 +12,24 @@ if(isset($_POST['them'])){
     $ngaysinh = $_POST['ngaysinh'];
     $email = $_POST['email'];
     $quyen = $_POST['quyen'];
-
+    $hashpass = password_hash($matkhau,PASSWORD_DEFAULT);
  
 
-    $them = "INSERT INTO `username`(`username`,`password`,`hoten`,`ngaysinh`,`email`,`quyen`) VALUES('$taikhoan','$matkhau','$hoten','$ngaysinh','$email','$quyen')";
+    $them = "INSERT INTO username(username,password,hoten,ngaysinh,email,quyen) VALUES('$taikhoan','$hashpass','$hoten','$ngaysinh','$email','$quyen')";
     $query_them=mysqli_query($connect,$them);
-    if($query_them){
-        echo "tc";
-    }else{
-        echo "tb";  
-    }
-    // header('location: index.php');
+  
+    header('location: index.php');
 }
 if(isset($_POST['sua'])){
-    $masv = $_POST['masv'];
+    $id = $_POST['id'];
+    echo $id;
+    $taikhoan = $_POST['tk'];
     $hoten = $_POST['hoten'];
     $ngaysinh = $_POST['ngaysinh'];
     $email = $_POST['email'];
-    $sodt = $_POST['sodt'];
-    $lop = $_POST['lop'];
-    $diachi = $_POST['diachi'];
+    $quyen = $_POST['quyen'];
+    $sql_sua = "UPDATE username SET username = '$taikhoan',ngaysinh='$ngaysinh',email='$email',
+                        quyen='$quyen', hoten = '$hoten' where id_username= '$id'";
     $query_sua=mysqli_query($connect,$sql_sua);
     header('location: index.php');
 }
@@ -91,7 +89,7 @@ if(isset($_POST['sua'])){
                                 
                                 <th>STT</th>
                                 <th>Tài Khoản</th>
-                                <th>Mật Khẩu</th>
+                         
                                 <th>Họ Tên</th>
                                 <th>Ngày Sinh</th>
                                 <th>Email</th>
@@ -108,7 +106,7 @@ if(isset($_POST['sua'])){
                                 
                                 <td><?= $rowsv['id_username'] ?></td>
                                 <td> <?= $rowsv['username'] ?></td>
-                                <td><?= $rowsv['password'] ?></td>
+                               
                                 <td><?= $rowsv['hoten'] ?></td>
                                 <td><?= $rowsv['ngaysinh'] ?></td>
                                 <td><?= $rowsv['email'] ?></td>
@@ -130,15 +128,15 @@ if(isset($_POST['sua'])){
                                             <h4 class="modal-title">Thêm Sinh Viên</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="" method="POST" enctype = "multipart/form-data">
-                                                <div class="form-group "><label>Tài Khoản</label><input class="form-control" type="text" name="masv" value="<?= $rowsv['username'] ?>" /></div>
-                                                <div class="form-group "><label>Mật Khẩu</label><input class="form-control" type="password" name="hoten" value="<?= $rowsv['password'] ?>" /></div>
-                                                <div class="form-group "><label>Họ Tên</label><input class="form-control" type="date" name="ngaysinh" value="<?= $rowsv['hoten'] ?>" /></div>
-                                                <div class="form-group "><label>Ngày Sinh</label><input class="form-control" type="text" name="email" value="<?= $rowsv['ngaysinh'] ?>" /></div>
-                                                <div class="form-group "><label>Email</label><input class="form-control" type="text" name="sodt" value="<?= $rowsv['email'] ?>" /></div>
+                                            <form method="POST">
+                                                <div class="form-group "><label>Tài Khoản</label><input class="form-control" type="text" name="tk" value="<?= $rowsv['username'] ?>" /></div>
+                                                <div class="form-group "><label>Họ Tên</label><input class="form-control" type="text" name="hoten" value="<?= $rowsv['hoten'] ?>" /></div>
+                                                <div class="form-group "><label>Ngày Sinh</label><input class="form-control" type="text" name="ngaysinh" value="<?= $rowsv['ngaysinh'] ?>" /></div>
+                                                <div class="form-group "><label>Email</label><input class="form-control" type="text" name="email" value="<?= $rowsv['email'] ?>" /></div>
+                                                 <div class="form-group "><input class="form-control" type="hidden" name="id" value="<?= $rowsv['id_username'] ?>" /></div>
                                                 <div class="form-group ">
                                                     <label>Quyền</label>
-                                                    <select class="form-control" name="lop">
+                                                    <select class="form-control" name="quyen">
                                                         <option value="hs" <?php if($rowsv['quyen'] == 'user') { 
                                                             echo "selected";
                                                         } ?>
